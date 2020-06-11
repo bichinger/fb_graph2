@@ -23,7 +23,7 @@ module FbGraph2
     end
 
     def previous(_options_ = {})
-      if self.collection.previous.present?
+      if collection.previous.present?
         owner.send edge, options.merge(collection.previous).merge(_options_)
       elsif collection.before.present?
         owner.send edge, options.merge(before: collection.before).merge(_options_)
