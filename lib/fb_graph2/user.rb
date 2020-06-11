@@ -98,7 +98,7 @@ module FbGraph2
         end
       end
       if attributes.include? :permissions
-        self.permissions = attributes[:permissions].collect do |permission|
+        self.permissions = attributes[:permissions][:data].collect do |permission|
           Struct::Permission.new permission
         end
       end
