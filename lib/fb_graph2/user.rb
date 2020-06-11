@@ -67,7 +67,7 @@ module FbGraph2
       photo: [:cover],
       custom: [
         :age_range, :context, :currency, :devices, :education, :payment_mobile_pricepoints, :payment_pricepoints,
-        :security_settings, :suggested_groups, :video_upload_limits, :work
+        :security_settings, :suggested_groups, :video_upload_limits, :work, :permissions
       ]
     )
 
@@ -95,6 +95,11 @@ module FbGraph2
       if attributes.include? :work
         self.work = attributes[:work].collect do |work|
           Struct::Work.new work
+        end
+      end
+      if attributes.include? :permissions
+        self.permissions = attributes[:permissions].collect do |permission|
+          Struct::Permission.new permission
         end
       end
     end
