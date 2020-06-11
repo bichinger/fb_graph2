@@ -97,11 +97,6 @@ module FbGraph2
           Struct::Work.new work
         end
       end
-      if attributes.include? :permissions
-        self.permissions = attributes[:permissions][:data].collect do |permission|
-          Struct::Permission.new permission
-        end
-      end
     end
 
     def self.me(access_token)
